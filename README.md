@@ -13,7 +13,7 @@ Before we get started I want to have something cleared up which is this list.
 - This admin script works in Non-fe and Fe games.
 - This admin script does not log your ip or Uid.
 - This admin script is not a virus in anyway.
-- If this script doesn't load on your executor that means it's not supported yet.
+- If this script doesn't load on your executor that means it's not supported yet or it's updated to the lastest version.
 - Enjoy!
 
 
