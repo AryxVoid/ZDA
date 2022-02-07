@@ -1,7 +1,7 @@
 # ZDA-Gobal
 
                                      
-                             // Thank you for supporting this script\\
+                                          // Thank you for supporting this script\\
 
 On behave of the developers of Zeroday, we would like to formerly welcome you to the Community.
 
