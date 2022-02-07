@@ -8,11 +8,15 @@ On behave of the developers of Zeroday, we would like to formerly welcome you to
 Before we get started I want to have something cleared up which is this list.
 
 [---------------------------------------------------------------------------------]
+
+
 - This admin script works in Non-fe and Fe games.
 - This admin script does not log your ip or Uid.
 - This admin script is not a virus in anyway.
 - If this script doesn't load on your executor that means it's not supported yet.
 - Enjoy!
+
+
 ]---------------------------------------------------------------------------------[
 
 This script is a work in progress so it maybe have bug's/glitch's or error's when you run it. If this happens to you please let us know in our issues section.
