@@ -42,9 +42,8 @@ end
 
 zday.client.init = function()
    if util.precheck() then
-       print('Zero Day Loaded!')
+       print('Zero Day Loaded, Using Prefix: ['..util.data.prefix..']')
        wait()
-
 
 zday.client.cmds.test = function()
         print("Hello World,"..util.info.adminname.." Working...")
@@ -63,7 +62,7 @@ zdayuser.Chatted:Connect(function(msg,recipient)
 
     local splitString = msg:split(" ") 
     local slcmd = splitString[1]
-    local cmd = slcmd:split(prefix) 
+    local cmd = slcmd:split(util.data.prefix) 
     local cmdName = cmd[2]
 
     if zday.client.cmds[cmdName] then
