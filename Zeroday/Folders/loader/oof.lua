@@ -153,6 +153,14 @@ end
 zday.client.cmds.unview = function(origin,args)
     game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character.Head
 end
+  
+zday.client.cmds.edit = function(origin, args)
+     local setting = args[1]
+     local state = args[2]
+     _G.settings[setting] = state
+     warn('Edited setting: '..setting..' Changed value to : '..state
+     util.saveSettings()
+ end
 
 zdayuser.Chatted:Connect(function(msg,recipient)
     msg = string.lower(msg)
