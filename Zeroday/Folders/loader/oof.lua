@@ -1,8 +1,12 @@
 local util = {}
 local zday = {}
 
+--client stuff
+
 zday.client = {}
 zday.client.cmds = {}
+
+--settings
 
 _G.settings = {
  prefix = getgenv().prefix,
@@ -20,7 +24,7 @@ myid = players.LocalPlayer.UserId
 
 
 
-
+--util init
 
 util.info = {
    version = "Z_0.0.1",
@@ -39,8 +43,16 @@ util.data = {
     gameid = game.GameId,
 }
 
+
+--functions 
+
 util.loadSettings = function()
-   
+   print('Loading ZeroDay_Config')
+   local https = game:GetService'HttpService'
+   if(readfile and isfile and isfile(_G.settings.file)) then
+     _G.settings = https:JSONDecode(readfile(_G.settings.file))
+     print('ZeroDay_Config Loaded')
+  end
 end
 
 util.saveSettings = function()
@@ -49,7 +61,7 @@ util.saveSettings = function()
    local https = game:GetService'HttpService'
    if(writefile) then
       json = https:JSONEncode(_G.settings)
-      writefile(_G.settings.file,json)
+      writefile(_G.settings.file,json, null, 2)
       else
       print('Error could not save due to exploit function missing [writefile]')
       end   
@@ -58,7 +70,7 @@ end
 
 util.precheck = function()
     repeat wait() until game:IsLoaded()
-      if 
+     util.loadSettings()
     return true
 end
 
@@ -86,6 +98,18 @@ zday.client.init = function()
 zday.client.cmds.test = function()
         print("Hello World, "..util.info.adminname.."  Working...")
 end
+  
+zday.client.cmds.spf = function(origin,args)
+   local newprefixinfo = args[1]
+   _G.settings.prefix = newprefixinfo
+   print("Saved new prefix to, ".. _G.settings.file.." ")
+   util.saveSettings()
+end
+  
+zday.client.cmds.pf = function(origin,args)
+   print("Current prefix:  ".. _G.settings.prefix.." ")
+end
+  
 zday.client.cmds.goto = function(origin,args)
     for i, player in pairs(args) do
         local playerto = args[1]
