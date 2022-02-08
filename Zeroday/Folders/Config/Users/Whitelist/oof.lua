@@ -1,7 +1,7 @@
 local wl = {}
 
 wl.Allowed = {
-[''] = true, 
+['170838156'] = true, 
   
 }
 
