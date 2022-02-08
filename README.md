@@ -1,4 +1,4 @@
-   ![Mou icon](http://mouapp.com/Mou_128.png)
+   ![Mou icon](https://github.com/AuthZero/ZDA-Gobal/raw/main/Zeroday/Folders/Extra/Logos/2022/Zday.png)
 
                                      
                             // Thank you for supporting this script\\
