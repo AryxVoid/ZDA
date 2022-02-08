@@ -47,23 +47,25 @@ util.data = {
 --functions 
 
 util.loadSettings = function()
-   print('Loading ZeroDay_Config')
+  warn('Loading ZeroDay_Config')
    local https = game:GetService'HttpService'
    if(readfile and isfile and isfile(_G.settings.file)) then
      _G.settings = https:JSONDecode(readfile(_G.settings.file))
      print('ZeroDay_Config Loaded')
+  else
+   error('Error could not load due to exploit function missing [readfile or isfile]')
   end
 end
 
 util.saveSettings = function()
-   print('Saving ZeroDay_Config')
+   warn('Saving ZeroDay_Config')
    local json;
    local https = game:GetService'HttpService'
    if(writefile) then
       json = https:JSONEncode(_G.settings)
       writefile(_G.settings.file,json, null, 2)
       else
-      print('Error could not save due to exploit function missing [writefile]')
+      error('Error could not save due to exploit function missing [writefile]')
       end   
 end
 
