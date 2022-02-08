@@ -4,6 +4,13 @@ local zday = {}
 zday.client = {}
 zday.client.cmds = {}
 
+_G.settings = {
+ prefix = getgenv().prefix,
+ file = "zday_config.txt",
+ autoexe = false,
+ sendlogs = true
+}
+
 --init player
 ws = game.Workspace
 players = game:GetService'Players'
@@ -30,13 +37,28 @@ util.info = {
 util.data = {
     placeid = game.PlaceId,
     gameid = game.GameId,
-    prefix = getgenv().prefix,
 }
 
+util.loadSettings = function()
+   
+end
+
+util.saveSettings = function()
+   print('Saving ZeroDay_Config')
+   local json;
+   local https = game:GetService'HttpService'
+   if(writefile) then
+      json = https:JSONEncode(_G.settings)
+      writefile(_G.settings.file,json)
+      else
+      print('Error could not save due to exploit function missing [writefile]')
+      end   
+end
 
 
 util.precheck = function()
     repeat wait() until game:IsLoaded()
+      if 
     return true
 end
 
@@ -58,7 +80,7 @@ end
 
 zday.client.init = function()
    if util.precheck() then
-       print('Zero Day Loaded, Using Prefix: ['..util.data.prefix..']')
+       print('Zero Day Loaded, Using Prefix: ['.._G.settings.prefix..']')
        wait()
 
 zday.client.cmds.test = function()
@@ -111,7 +133,7 @@ zdayuser.Chatted:Connect(function(msg,recipient)
 
     local splitString = msg:split(" ") 
     local slcmd = splitString[1]
-    local cmd = slcmd:split(util.data.prefix) 
+    local cmd = slcmd:split(_G.settings.prefix) 
     local cmdName = cmd[2]
 
     if zday.client.cmds[cmdName] then
