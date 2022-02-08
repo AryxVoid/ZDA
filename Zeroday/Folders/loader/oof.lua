@@ -18,10 +18,11 @@ _G.settings = {
 --init player
 ws = game.Workspace
 players = game:GetService'Players'
+rs = game:GetService'RunService'
 zdayuser = players.LocalPlayer
 myname = players.LocalPlayer.Name
 myid = players.LocalPlayer.UserId
-
+HumanoidRootPart = zdayuser.Character:WaitForChild'HumanoidRootPart'
 
 
 --util init
@@ -36,7 +37,9 @@ util.info = {
    admintype = "Global"
 }
 
-
+util.vars = {
+   isflinging = false
+}
 
 util.data = {
     placeid = game.PlaceId,
