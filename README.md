@@ -1,7 +1,7 @@
    ![Mou icon](https://github.com/AuthZero/ZDA-Gobal/raw/main/Zeroday/Folders/Extra/Logos/2022/Zday.png)
 
                                      
-                                     // Thank you for supporting this script\\
+                                          // Thank you for supporting this script\\
 
 On behave of the developers of Zeroday, we would like to formerly welcome you to the Community.
 
