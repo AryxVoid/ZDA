@@ -155,7 +155,9 @@ local function UCQCDL_fake_script()
 		blur:Destroy()
 	end
 	
+    zutil.intro()
 	
 	return zutil
 end
 coroutine.wrap(UCQCDL_fake_script)()
+
