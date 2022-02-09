@@ -159,6 +159,9 @@ end
 zday.client.cmds.edit = function(origin, args)
      local setting = args[1]
      local state = args[2]
+     if setting == 'file' then
+        return warn("You can't edited the config file")
+     end
      _G.settings[setting] = state
      warn('Edited setting: '..setting..' Changed value to : '..state)
      util.saveSettings()
