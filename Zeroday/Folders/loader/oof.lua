@@ -1,5 +1,7 @@
 local util = {}
 local zday = {}
+local zinit = loadstring(game:HttpGet('https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Extra/loadup.lua?token=GHSAT0AAAAAABRLAUEWSKYBEEDTDWGQ5WIGYQEISOA'))()
+
 
 --client stuff
 
@@ -75,6 +77,8 @@ end
 
 util.precheck = function()
     repeat wait() until game:IsLoaded()
+     zinit.intro()
+      wait()
      util.loadSettings()
     return true
 end
