@@ -185,6 +185,10 @@ end)
    end
 end
 
+zday.client.reload = function()
+  local version = {}
+end
+
 
 --Zera was here @2022
 
