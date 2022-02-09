@@ -56,7 +56,7 @@ util.loadSettings = function()
      _G.settings = https:JSONDecode(readfile(_G.settings.file))
      print('ZeroDay_Config Loaded')
   else
-   error('Error could not load due to exploit function missing [readfile or isfile]')
+   warn('Error could not load due to exploit function missing [readfile or isfile]')
   end
 end
 
@@ -97,7 +97,7 @@ end
 
 zday.client.init = function()
    if util.precheck() then
-       print('Zero Day Loaded, Using Prefix: ['.._G.settings.prefix..']')
+       print('Zero Day Loaded')
        wait()
 
 zday.client.cmds.test = function()
@@ -115,7 +115,7 @@ zday.client.cmds.pf = function(origin,args)
    print("Current prefix:  ".. _G.settings.prefix.." ")
 end
   
-zday.client.cmds.goto = function(origin,args)
+zday.client.cmds.to = function(origin,args)
     for i, player in pairs(args) do
         local playerto = args[1]
 
@@ -161,7 +161,7 @@ zday.client.cmds.edit = function(origin, args)
      local setting = args[1]
      local state = args[2]
      _G.settings[setting] = state
-     warn('Edited setting: '..setting..' Changed value to : '..state
+     warn('Edited setting: '..setting..' Changed value to : '..state)
      util.saveSettings()
  end
 
@@ -187,5 +187,7 @@ end
 
 
 --Zera was here @2022
+
+zday.client.init()
 
 return zday
