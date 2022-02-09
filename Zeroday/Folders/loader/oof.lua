@@ -1,12 +1,11 @@
 local util = {}
 local zday = {}
 
---client stuff
 
 zday.client = {}
 zday.client.cmds = {}
 
---settings
+
 
 _G.settings = {
  prefix = getgenv().prefix,
@@ -15,7 +14,7 @@ _G.settings = {
  sendlogs = true
 }
 
---init player
+
 ws = game.Workspace
 players = game:GetService'Players'
 rs = game:GetService'RunService'
@@ -25,7 +24,7 @@ myid = players.LocalPlayer.UserId
 HumanoidRootPart = zdayuser.Character:WaitForChild'HumanoidRootPart'
 
 
---util init
+
 
 util.info = {
    version = "Z_0.0.1",
@@ -47,7 +46,7 @@ util.data = {
 }
 
 
---functions 
+
 
 util.loadSettings = function()
   warn('Loading ZeroDay_Config')
@@ -187,7 +186,5 @@ end
 
 
 --Zera was here @2022
-
-zday.client.init()
 
 return zday
