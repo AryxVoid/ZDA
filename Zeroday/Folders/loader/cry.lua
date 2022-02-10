@@ -1,7 +1,6 @@
 local util = {}
 local zday = {}
 getgenv().prefix = "z."
-local zinit = loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Extra/loadup.lua?token=GHSAT0AAAAAABRLAUEW3NKENVX6PUSB2DAWYQFNANA"))()
 
 
 --client stuff
@@ -40,6 +39,8 @@ TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 21.000
 TextLabel.TextTransparency = 1.000
 TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+
 
 util = {}
 tween = game:GetService'TweenService'
