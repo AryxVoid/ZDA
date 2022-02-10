@@ -1,6 +1,6 @@
 local util = {}
 local zday = {}
-local zinit = loadstring(game:HttpGet('https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Extra/loadup.lua?token=GHSAT0AAAAAABRLAUEWSKYBEEDTDWGQ5WIGYQEISOA'))()
+local zinit = loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Extra/loadup.lua?token=GHSAT0AAAAAABRLAUEW3NKENVX6PUSB2DAWYQFNANA"))()
 
 
 --client stuff
