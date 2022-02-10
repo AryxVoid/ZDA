@@ -158,10 +158,11 @@ zinit.intro = function()
 		end
 
 	end
+	
 	coroutine.wrap(OMNVE_fake_script)()
 end
 
 
-
+zinit.intro()
 
 return zinit
