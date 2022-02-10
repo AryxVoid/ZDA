@@ -1,6 +1,8 @@
 local util = {}
 local zday = {}
-local zinit = loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Extra/loadup.lua"))()
+local zinit = loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Extra/load.lua"))()
+
+
 
 
 --client stuff
@@ -334,6 +336,6 @@ end
 
 --Zera was here @2022
 
-zday.client.init()
+
 
 return zday
