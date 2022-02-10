@@ -3,8 +3,6 @@ local zday = {}
 local zinit = loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Extra/load.lua"))()
 
 
-
-
 --client stuff
 
 zday.client = {}
@@ -203,9 +201,10 @@ zday.client.init = function()
    if util.precheck() then
     zinit.intro()
     wait(10)
-      util.notify('Zero Day Loaded',0)
-       wait()
-
+    util.notify('Zero Day Loaded',0)
+    wait()
+    util.notify('Using Prefix: '.._G.settings.prefix,0)
+       
     zday.client.cmds.test = function()
         util.notify("Hello World, "..util.info.adminname.."  Working...", 0)
     end
@@ -293,6 +292,7 @@ zday.client.init = function()
         if _G.settings[setting] then
             _G.settings[setting] = state
             util.notify('Edited setting: '..setting..' Changed value to : '..state,1)
+            util.saveSettings()
         else
             util.notify('Setting: '..setting..' Does not exist. ',2)
              return setting, state
@@ -300,8 +300,8 @@ zday.client.init = function()
     end
     
     zday.client.cmds.settings = function()
-        util.notify('Copied To Clipboard', 1)
-        setclipboard(_G.settings)
+        util.notify('Copied To Console', 1)
+        print(_G.settings)
     end
 
     zday.client.cmds.hats = function(origin)
@@ -325,7 +325,7 @@ zday.client.init = function()
             for i = 2, #splitString, 1 do
                 table.insert(args,splitString[i])
             end
-            zday.client.cmds[cmdName](zdayuser,args)
+            zday.client.cmds[cmdName](plr,args)
 
         end
     end)
@@ -337,6 +337,5 @@ end
 --Zera was here @2022
 
 zday.client.init()
-
 
 return zday
