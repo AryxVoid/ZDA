@@ -1,5 +1,6 @@
 local util = {}
 local zday = {}
+getgenv().prefix = "z."
 local zinit = loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Extra/loadup.lua?token=GHSAT0AAAAAABRLAUEW3NKENVX6PUSB2DAWYQFNANA"))()
 
 
@@ -198,6 +199,7 @@ end
 
 zday.client.init = function()
    if util.precheck() then
+    wait(10)
       util.notify('Zero Day Loaded',0)
        wait()
 
@@ -208,7 +210,7 @@ zday.client.init = function()
     zday.client.cmds.spf = function(origin,args)
         local newprefixinfo = args[1]
         _G.settings.prefix = newprefixinfo
-        if newprefixinfo == " " thenable
+        if newprefixinfo == " " then
             return util.notify('Invalid prefix cant set a empty prefix.',2)
         end
         util.notify("Prefix Switched To:  ".. _G.settings.prefix.." ",0)
@@ -269,7 +271,7 @@ zday.client.init = function()
         local setting = args[1]
         local state = args[2]
         
-        if not setting and not setting = " " and not state then
+        if not setting and not setting == " " and not state then
             return util.notify('You cant edit nothing silly.',2)
         end
 
@@ -281,7 +283,7 @@ zday.client.init = function()
             return util.notify('Invalid state for setting: '..setting..' this setting requires a true or false state.',2)
        end
 
-       if settings == "prefix" and state = " " then
+       if settings == "prefix" and state == " " then
             return util.notify('Invalid state for setting: '..setting..' this setting cant use a empty prefix.',2)
        end
         
