@@ -195,6 +195,7 @@ util.notify = function(text, kind)
 end
 
 
+
 zday.client.init = function()
    if util.precheck() then
       util.notify('Zero Day Loaded',0)
@@ -207,7 +208,10 @@ zday.client.init = function()
     zday.client.cmds.spf = function(origin,args)
         local newprefixinfo = args[1]
         _G.settings.prefix = newprefixinfo
-        util.notify("Prefix Switched To:  ".. _G.settings.prefix.." ",1)
+        if newprefixinfo == " " thenable
+            return util.notify('Invalid prefix cant set a empty prefix.',2)
+        end
+        util.notify("Prefix Switched To:  ".. _G.settings.prefix.." ",0)
         util.saveSettings()
     end
 
@@ -224,7 +228,7 @@ zday.client.init = function()
 
                 if totpto  then
                     HumanoidRootPart.CFrame =  totpto.Character.HumanoidRootPart.CFrame * CFrame.new(0, 4, 0)
-                    util.notify('Teleported to: '..totpto, 1)
+                    util.notify('Teleported to: '..totpto, 0)
                 else
                     if not totpto then
                         util.notify("The Player "..player.." Was Not Found!", 2)
@@ -244,7 +248,7 @@ zday.client.init = function()
 
                 if totpto  then
                     game.Workspace.CurrentCamera.CameraSubject = totpto.Character.Head
-                    util.notify('Viewing: '..totpto, 1)
+                    util.notify('Viewing: '..totpto, 0)
                 else
                     if not totpto then
                         util.notify("The Player "..player.." Was Not Found!", 2)
@@ -265,9 +269,21 @@ zday.client.init = function()
         local setting = args[1]
         local state = args[2]
         
-        if not setting then
+        if not setting and not setting = " " and not state then
             return util.notify('You cant edit nothing silly.',2)
         end
+
+        if settings == "sendlogs"  and not state == true or false then
+            return util.notify('Invalid state for setting: '..setting..' this setting requires a true or false state.',2)
+        end
+
+        if settings == "autoexe"  and not state == true or false then
+            return util.notify('Invalid state for setting: '..setting..' this setting requires a true or false state.',2)
+       end
+
+       if settings == "prefix" and state = " " then
+            return util.notify('Invalid state for setting: '..setting..' this setting cant use a empty prefix.',2)
+       end
         
         if _G.settings[setting] then
             _G.settings[setting] = state
