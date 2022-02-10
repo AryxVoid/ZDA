@@ -260,13 +260,18 @@ zday.client.init = function()
         game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character.Head
     end
 
+  
     zday.client.cmds.edit = function(origin, args)
         local setting = args[1]
         local state = args[2]
+        
+        if not setting then
+            return util.notify('You cant edit nothing silly.',2)
+        end
+        
         if _G.settings[setting] then
             _G.settings[setting] = state
             util.notify('Edited setting: '..setting..' Changed value to : '..state,1)
-            util.saveSettings()
         else
             util.notify('Setting: '..setting..' Does not exist. ',2)
              return setting, state
@@ -276,6 +281,14 @@ zday.client.init = function()
     zday.client.cmds.settings = function()
         util.notify('Copied To Clipboard', 1)
         setclipboard(_G.settings)
+    end
+
+    zday.client.cmds.hats = function(origin)
+        for i,v in pairs(origin.Character:GetChildren()) do
+            if v.ClassName == "Accessory" then
+              util.notify('Currently Wearing: '..v.Name, 0)
+            end
+        end
     end
 
     zdayuser.Chatted:Connect(function(msg,recipient)
