@@ -10,7 +10,7 @@ zinit.intro = function()
 	local UIGradient = Instance.new("UIGradient")
 	local info = Instance.new("TextLabel")
 
-	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	ScreenGui.Parent = game:WaitForChild'CoreGui'
 	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	bg.Name = "bg"
