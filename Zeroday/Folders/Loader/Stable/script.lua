@@ -336,6 +336,7 @@ end
 
 --Zera was here @2022
 
+zday.client.init()
 
 
 return zday
