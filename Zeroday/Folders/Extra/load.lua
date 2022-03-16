@@ -1,6 +1,15 @@
 local zinit = {}
 
 
+zutil.checkifconfig = function()
+	if isfile('zday_config.txt') then
+		return true 
+	else
+		return false
+	end
+end
+
+
 zinit.intro = function()
 	local ScreenGui = Instance.new("ScreenGui")
 	local bg = Instance.new("ImageLabel")
@@ -114,7 +123,7 @@ zinit.intro = function()
 		local script = Instance.new('LocalScript', ScreenGui)
 
 		local tween = game:GetService'TweenService'
-		local blur = Instance.new('BlurEffect', game.Lighting)
+		
 		bg = script.Parent.bg
 		loaderbar = bg.loaderbar
 		progress = loaderbar.progress
@@ -125,24 +134,65 @@ zinit.intro = function()
 		}
 
 
-	
-			tween:Create(blur,TweenInfo.new(1),{Size = 40}):Play()
-			wait(0.32)
-			tween:Create(bg,info.tweenInfo,{Position = UDim2.new(0.236, 0,0.267, 0, "Out", "Bounce")}):Play()
-			wait(.2)
-			tween:Create(bg,info.tweenInfo,{ImageTransparency = 0}):Play()
-			wait(1.2)
-			tween:Create(loaderbar, info.tweenInfo,{ImageTransparency = 0}):Play()
-			wait(0.52)
-			tween:Create(progress, info.tweenInfo,{BackgroundTransparency = 0}):Play()
-			wait(0.52)
-			tween:Create(infot, info.tweenInfo,{TextTransparency = 0}):Play()
-			infot.Text = "Checking Zday_Config File..."
-			wait(4)
+local blur = Instance.new('BlurEffect', game.Lighting)
+	tween:Create(blur,TweenInfo.new(1),{Size = 40}):Play()
+	wait(0.32)
+	tween:Create(bg,info.tweenInfo,{Position = UDim2.new(0.236, 0,0.267, 0, "Out", "Bounce")}):Play()
+	wait(.2)
+	tween:Create(bg,info.tweenInfo,{ImageTransparency = 0}):Play()
+	wait(1.2)
+	tween:Create(loaderbar, info.tweenInfo,{ImageTransparency = 0}):Play()
+	wait(0.52)
+	tween:Create(progress, info.tweenInfo,{BackgroundTransparency = 0}):Play()
+	wait(0.52)
+	tween:Create(infot, info.tweenInfo,{TextTransparency = 0}):Play()
+	infot.Text = "Checking Zday_Config File..."
+	if zutil.checkifconfig() == true then
+	wait(4)
+	tween:Create(infot, info.tweenInfo,{TextTransparency = 1}):Play()
+	wait(0.52)
+	tween:Create(infot, info.tweenInfo,{TextTransparency = 0}):Play()
+	infot.Text = "Zero Day Ready."
+	wait(4.2)
+	tween:Create(loaderbar, info.tweenInfo,{ImageTransparency = 1}):Play()
+	wait(0.52)
+	tween:Create(progress, info.tweenInfo,{BackgroundTransparency = 1}):Play()
+	wait(0.52)
+	tween:Create(infot, info.tweenInfo,{TextTransparency = 1}):Play()
+	wait(1.2)
+	tween:Create(bg,info.tweenInfo,{Position = UDim2.new(0.236, 0,-0.145, 0, "Out", "Bounce")}):Play()
+	wait(.2)
+	script.Parent:Destroy()
+		blur:Destroy()
+	else
+		wait(4)
+		tween:Create(infot, info.tweenInfo,{TextTransparency = 1}):Play()
+		wait(0.52)
+		tween:Create(infot, info.tweenInfo,{TextTransparency = 0}):Play()
+		infot.Text = "Could not find config file."
+		wait(4)
+		tween:Create(infot, info.tweenInfo,{TextTransparency = 1}):Play()
+		wait(0.52)
+		tween:Create(infot, info.tweenInfo,{TextTransparency = 0}):Play()
+		infot.Text = "Attempting to create new config file."
+		local json;
+		local https = game:GetService'HttpService'
+		
+		_G.settings = {
+			prefix = "z.",
+			file = "zday_config.txt",
+			autoexe = false,
+			sendlogs = true
+		}
+		
+		if(writefile) then
+			json = https:JSONEncode(_G.settings)
+			writefile('zday_config.txt',json, null, 2)
+			wait(2)
 			tween:Create(infot, info.tweenInfo,{TextTransparency = 1}):Play()
 			wait(0.52)
 			tween:Create(infot, info.tweenInfo,{TextTransparency = 0}):Play()
-			infot.Text = "Zero Day Ready."
+			infot.Text = "File created, enjoy Zero day!"
 			wait(4.2)
 			tween:Create(loaderbar, info.tweenInfo,{ImageTransparency = 1}):Play()
 			wait(0.52)
@@ -151,12 +201,14 @@ zinit.intro = function()
 			tween:Create(infot, info.tweenInfo,{TextTransparency = 1}):Play()
 			wait(1.2)
 			tween:Create(bg,info.tweenInfo,{Position = UDim2.new(0.236, 0,-0.145, 0, "Out", "Bounce")}):Play()
-			wait(.5)
+			wait(.2)
 			script.Parent:Destroy()
 			blur:Destroy()
-           
-
+		else
+			error('Error could not save due to exploit function missing [writefile]')
+		end   
 	end
+end
 
 
 	
