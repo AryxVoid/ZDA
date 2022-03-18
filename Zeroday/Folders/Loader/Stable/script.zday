@@ -95,7 +95,6 @@ util.info = {
 }
 
 util.vars = {
-   isflinging = false,
    notifyshowing = false
 }
 
@@ -108,11 +107,10 @@ util.data = {
 --functions 
 
 util.loadSettings = function()
-  warn('Loading ZeroDay_Config')
    local https = game:GetService'HttpService'
    if(readfile and isfile and isfile(_G.settings.file)) then
      _G.settings = https:JSONDecode(readfile(_G.settings.file))
-     print('ZeroDay_Config Loaded')
+      warn('Loading ZeroDay_Config')
   else
    warn('Error could not load due to exploit function missing [readfile or isfile]')
   end
