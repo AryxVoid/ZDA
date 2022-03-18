@@ -7,7 +7,7 @@ local zinit = loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZer
 
 zday.client = {}
 zday.client.cmds = {}
-
+zday.author = "Authera#7762"
 --notifications
 local notifs = Instance.new("ScreenGui")
 local notify = Instance.new("ImageLabel")
@@ -204,6 +204,7 @@ zday.client.init = function()
     util.notify('Zero Day Loaded',0)
     wait()
     util.notify('Using Prefix: '.._G.settings.prefix,0)
+    util.notify('Made By: ' ..zday.author)
        
     zday.client.cmds.test = function()
         util.notify("Hello World, "..util.info.adminname.."  Working...", 0)
@@ -334,7 +335,7 @@ end
 
 
 
---Zera was here @2022
+--Authera was here @2022
 
 zday.client.init()
 
