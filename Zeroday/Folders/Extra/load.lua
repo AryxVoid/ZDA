@@ -157,6 +157,9 @@ local blur = Instance.new('BlurEffect', game.Lighting)
 	wait(.2)
 	script.Parent:Destroy()
 		blur:Destroy()
+			wait(2)
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Loader/Stable/script.zday"))()
+
 	else
 		wait(4)
 		tween:Create(infot, info.tweenInfo,{TextTransparency = 1}):Play()
@@ -197,6 +200,9 @@ local blur = Instance.new('BlurEffect', game.Lighting)
 			wait(.2)
 			script.Parent:Destroy()
 			blur:Destroy()
+				wait(2)
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Loader/Stable/script.zday"))()
+
 		else
 			error('Error could not save due to exploit function missing [writefile]')
 		end   
