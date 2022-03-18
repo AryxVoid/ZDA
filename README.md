@@ -7,5 +7,6 @@
 ```lua
 getgenv().prefix = "z." -- Use this when first running this script / afterwards your prefix will be saved via file.
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Loader/Stable/script.zday"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA/main/Zeroday/Folders/Extra/load.lua"))()
+
 ```
