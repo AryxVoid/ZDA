@@ -1,13 +1,6 @@
 local zinit = {}
 
 
-zutil.checkifconfig = function()
-	if isfile('zday_config.txt') then
-		return true 
-	else
-		return false
-	end
-end
 
 
 zinit.intro = function()
@@ -147,7 +140,7 @@ local blur = Instance.new('BlurEffect', game.Lighting)
 	wait(0.52)
 	tween:Create(infot, info.tweenInfo,{TextTransparency = 0}):Play()
 	infot.Text = "Checking Zday_Config File..."
-	if zutil.checkifconfig() == true then
+	if isfile('zday_config.txt') then
 	wait(4)
 	tween:Create(infot, info.tweenInfo,{TextTransparency = 1}):Play()
 	wait(0.52)
@@ -216,6 +209,6 @@ end
 end
 
 
-
+zinit.intro()
 
 return zinit
