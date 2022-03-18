@@ -1,6 +1,6 @@
 local util = {}
 local zday = {}
-loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Extra/load.lua"))()
+local zinit = loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Extra/load.lua"))()
 
 
 --client stuff
