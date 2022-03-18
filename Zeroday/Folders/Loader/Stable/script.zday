@@ -8,6 +8,9 @@ local zinit = loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZer
 zday.client = {}
 zday.client.cmds = {}
 zday.author = "Authera#7762"
+
+
+
 --notifications
 local notifs = Instance.new("ScreenGui")
 local notify = Instance.new("ImageLabel")
@@ -65,8 +68,6 @@ info = {
 _G.settings = {
  prefix = getgenv().prefix,
  file = "zday_config.txt",
- autoexe = false,
- sendlogs = true
 }
 
 --init player
@@ -77,6 +78,8 @@ zdayuser = players.LocalPlayer
 myname = players.LocalPlayer.Name
 myid = players.LocalPlayer.UserId
 HumanoidRootPart = zdayuser.Character:WaitForChild'HumanoidRootPart'
+teleport = game:GetService'TeleportService'
+plcid = game.PlaceId
 
 
 --util init
@@ -113,6 +116,11 @@ util.loadSettings = function()
   else
    warn('Error could not load due to exploit function missing [readfile or isfile]')
   end
+end
+
+util.rejoin = function()
+    util.notify('Attempting to rejoin', 2)
+    teleport:Teleport(plcid, zdayuser)
 end
 
 util.saveSettings = function()
@@ -210,6 +218,15 @@ zday.client.init = function()
         util.notify("Hello World, "..util.info.adminname.."  Working...", 0)
     end
 
+
+      zday.client.cmds.rj = function()
+       util.rejoin()
+    end
+
+       zday.client.cmds.rejoin = function()
+        util.rejoin()
+    end
+
     zday.client.cmds.spf = function(origin,args)
         local newprefixinfo = args[1]
         _G.settings.prefix = newprefixinfo
@@ -222,6 +239,10 @@ zday.client.init = function()
 
     zday.client.cmds.pf = function(origin,args)
         util.notify("Current prefix:  ".. _G.settings.prefix.." ",0)
+    end
+
+      zday.client.cmds.cmdbar = function(origin,args)
+        util.notify("This function is being worked on" , 1)
     end
 
     zday.client.cmds.to = function(origin,args)
