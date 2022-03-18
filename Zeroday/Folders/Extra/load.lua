@@ -177,8 +177,6 @@ local blur = Instance.new('BlurEffect', game.Lighting)
 		_G.settings = {
 			prefix = "z.",
 			file = "zday_config.txt",
-			autoexe = false,
-			sendlogs = true
 		}
 		
 		if(writefile) then
