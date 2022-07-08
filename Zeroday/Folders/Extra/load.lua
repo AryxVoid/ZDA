@@ -202,7 +202,7 @@ local blur = Instance.new('BlurEffect', game.Lighting)
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/AuthZero/ZDA-Gobal/main/Zeroday/Folders/Loader/Stable/script.zday"))()
 
 		else
-			error('Error could not save due to exploit function missing [writefile]')
+			infot.Text = 'Error could not save due to exploit function missing [writefile]'
 		end   
 	end
 end
